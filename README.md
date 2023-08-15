@@ -1,6 +1,8 @@
 # JabkaCore
 JabkaCore adds a workbench in a barrel, with which you can add your own crafts with NBT tags to your datapack.
 
+![craft](https://cdn.modrinth.com/data/PhBBUOS3/images/1afb9129d17638ff9107006fa0c50d2dc1de3f46.gif)
+
 To make your own craft you need to: 
 1. run the file "main.py"
 2. Enter the ID of the item for the first slot (if you want to skip this slot, you should press Enter, do not write 'air' in the ID because Minecraft does not work correctly with this)
