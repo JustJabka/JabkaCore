@@ -8,8 +8,8 @@ To make your own craft you need to:
 4. Enter the NBT tag. For example: {CustomModelData:1001,test:1b} (This item can also be skipped by simply pressing enter or writing "{}" without other characters)
 5. Repeat steps 2, 3, 4 until you are asked to select the reward method. 
 6. Choose the reward spawn from these two options:
-*summon
-*loot
+* summon
+* loot
 (To select the summon command, write "summon" with loot in the same way)
 7. Follow the instructions in summon or loot
 8. After completing summon or loot, you are shown three commands, and you copy them to your datapack in a looping function.
