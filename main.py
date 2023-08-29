@@ -1,13 +1,14 @@
 #слоти
-item_slot_1 = '3b'
-item_slot_2 = '4b'
-item_slot_3 = '5b'
-item_slot_4 = '12b'
-item_slot_5 = '13b'
-item_slot_6 = '14b'
-item_slot_7 = '21b'
-item_slot_8 = '22b'
-item_slot_9 = '23b'
+item_slot_1 = '1b'
+item_slot_2 = '2b'
+item_slot_3 = '3b'
+item_slot_4 = '10b'
+item_slot_5 = '11b'
+item_slot_6 = '12b'
+item_slot_7 = '19b'
+item_slot_8 = '20b'
+item_slot_9 = '21b'
+item_slot_10 = '16b'
 
 def start():
     def item_1():
@@ -289,15 +290,16 @@ def start():
         craft_result()
     
     def craft_result():
-        choose = str(input('Select the command you will use as a reward for the player\n1. summon\n2. loot\n>>>'))
+        choose = str(input('Select the command you will use as a reward for the player\n1. item\n2. loot\n>>>'))
         
         global id_10, count_10, tag_10
 
-        if choose == 'summon':
+        if choose == 'item':
             item_id_10 = str(input('Enter item ID\nminecraft:'))
             item_count_10 = str(input('Enter the quantity of this item\nIf you press "Enter" by default, the number 1 will be indicated\nCount:'))
             item_tag_10 = str(input('Enter item NBT tag\nPress "Enter" or write "{}" if you do not want to specify NBT tags\ntag:'))
             id_10 = 'id:"minecraft:' + item_id_10 + '",'
+            slot_10 = 'Slot:' + item_slot_10 + ','
             #count_10
             if item_count_10 == '':
                 count_10 = 'Count:' + '1b'
@@ -310,15 +312,18 @@ def start():
                 tag_10 = ''
             else:
                 tag_10 = ',tag:' + item_tag_10
-            print('\n\n\n#Craft:\nexecute as @e[type=item_display,tag=dis.custom_crafting_table] at @s if block ~ ~ ~ barrel{Items:[','{', id_1, slot_1, count_1, tag_1, '},', '{', id_2, slot_2, count_2, tag_2, '},', '{', id_3, slot_3, count_3, tag_3, '},', '{', id_4, slot_4, count_4, tag_4, '},', '{', id_5, slot_5, count_5, tag_5, '},', '{', id_6, slot_6, count_6, tag_6, '},', '{', id_7, slot_7, count_7, tag_7, '},', '{', id_8, slot_8, count_8, tag_8, '},', '{', id_9, slot_9, count_9, tag_9, '}',']}', ' run summon item ~ ~1 ~ {Item:{', id_10, count_10, tag_10, '}}', sep='')
-            print('#Sound after craft:\nexecute as @e[type=item_display,tag=dis.custom_crafting_table] at @s if block ~ ~ ~ barrel{Items:[','{', id_1, slot_1, count_1, tag_1, '},', '{', id_2, slot_2, count_2, tag_2, '},', '{', id_3, slot_3, count_3, tag_3, '},', '{', id_4, slot_4, count_4, tag_4, '},', '{', id_5, slot_5, count_5, tag_5, '},', '{', id_6, slot_6, count_6, tag_6, '},', '{', id_7, slot_7, count_7, tag_7, '},', '{', id_8, slot_8, count_8, tag_8, '},', '{', id_9, slot_9, count_9, tag_9, '}',']}', ' run playsound minecraft:block.anvil.use block @a[distance=..10] ~ ~ ~', sep='')
-            print('#Clear crafting table:\nexecute as @e[type=item_display,tag=dis.custom_crafting_table] at @s if block ~ ~ ~ barrel{Items:[','{', id_1, slot_1, count_1, tag_1, '},', '{', id_2, slot_2, count_2, tag_2, '},', '{', id_3, slot_3, count_3, tag_3, '},', '{', id_4, slot_4, count_4, tag_4, '},', '{', id_5, slot_5, count_5, tag_5, '},', '{', id_6, slot_6, count_6, tag_6, '},', '{', id_7, slot_7, count_7, tag_7, '},', '{', id_8, slot_8, count_8, tag_8, '},', '{', id_9, slot_9, count_9, tag_9, '}',']}', ' run data remove block ~ ~ ~ Items', sep='')
+            print('\n\n\n#Sound after craft:\nexecute as @e[type=item_display,tag=dis.custom_crafting_table] at @s[scores={use_craft=1}] if block ~ ~ ~ barrel{Items:[','{', id_1, slot_1, count_1, tag_1, '},', '{', id_2, slot_2, count_2, tag_2, '},', '{', id_3, slot_3, count_3, tag_3, '},', '{', id_4, slot_4, count_4, tag_4, '},', '{', id_5, slot_5, count_5, tag_5, '},', '{', id_6, slot_6, count_6, tag_6, '},', '{', id_7, slot_7, count_7, tag_7, '},', '{', id_8, slot_8, count_8, tag_8, '},', '{', id_9, slot_9, count_9, tag_9, '}',']}', ' run playsound minecraft:block.anvil.use block @a[distance=..10] ~ ~ ~', sep='')
+            print('#Craft:\nexecute as @e[type=item_display,tag=dis.custom_crafting_table] at @s[scores={use_craft=1}] if block ~ ~ ~ barrel{Items:[','{', id_1, slot_1, count_1, tag_1, '},', '{', id_2, slot_2, count_2, tag_2, '},', '{', id_3, slot_3, count_3, tag_3, '},', '{', id_4, slot_4, count_4, tag_4, '},', '{', id_5, slot_5, count_5, tag_5, '},', '{', id_6, slot_6, count_6, tag_6, '},', '{', id_7, slot_7, count_7, tag_7, '},', '{', id_8, slot_8, count_8, tag_8, '},', '{', id_9, slot_9, count_9, tag_9, '}',']}', ' run data merge block ~ ~ ~ {Items:[{', id_10, slot_10, count_10, tag_10, '}]}', sep='')
+            #print('#Clear crafting table:\nexecute as @e[type=item_display,tag=dis.custom_crafting_table] at @s[scores={use_craft=1}] if block ~ ~ ~ barrel{Items:[','{', id_1, slot_1, count_1, tag_1, '},', '{', id_2, slot_2, count_2, tag_2, '},', '{', id_3, slot_3, count_3, tag_3, '},', '{', id_4, slot_4, count_4, tag_4, '},', '{', id_5, slot_5, count_5, tag_5, '},', '{', id_6, slot_6, count_6, tag_6, '},', '{', id_7, slot_7, count_7, tag_7, '},', '{', id_8, slot_8, count_8, tag_8, '},', '{', id_9, slot_9, count_9, tag_9, '}',']}', ' run data remove block ~ ~ ~ Items', sep='')
 
-        else:
+        elif choose == 'loot':
             loot_path = str(input('Enter loot path\nExample - jabka_api:custom_crafting_table\n>>>'))
-            print('\n\n\n#Craft:\nexecute as @e[type=item_display,tag=dis.custom_crafting_table] at @s if block ~ ~ ~ barrel{Items:[','{', id_1, slot_1, count_1, tag_1, '},', '{', id_2, slot_2, count_2, tag_2, '},', '{', id_3, slot_3, count_3, tag_3, '},', '{', id_4, slot_4, count_4, tag_4, '},', '{', id_5, slot_5, count_5, tag_5, '},', '{', id_6, slot_6, count_6, tag_6, '},', '{', id_7, slot_7, count_7, tag_7, '},', '{', id_8, slot_8, count_8, tag_8, '},', '{', id_9, slot_9, count_9, tag_9, '}',']}', ' run loot spawn ~ ~1 ~ loot ', loot_path, sep='')
-            print('#Sound after craft:\nexecute as @e[type=item_display,tag=dis.custom_crafting_table] at @s if block ~ ~ ~ barrel{Items:[','{', id_1, slot_1, count_1, tag_1, '},', '{', id_2, slot_2, count_2, tag_2, '},', '{', id_3, slot_3, count_3, tag_3, '},', '{', id_4, slot_4, count_4, tag_4, '},', '{', id_5, slot_5, count_5, tag_5, '},', '{', id_6, slot_6, count_6, tag_6, '},', '{', id_7, slot_7, count_7, tag_7, '},', '{', id_8, slot_8, count_8, tag_8, '},', '{', id_9, slot_9, count_9, tag_9, '}',']}', ' run playsound minecraft:block.anvil.use block @a[distance=..10] ~ ~ ~', sep='')
-            print('#Clear crafting table:\nexecute as @e[type=item_display,tag=dis.custom_crafting_table] at @s if block ~ ~ ~ barrel{Items:[','{', id_1, slot_1, count_1, tag_1, '},', '{', id_2, slot_2, count_2, tag_2, '},', '{', id_3, slot_3, count_3, tag_3, '},', '{', id_4, slot_4, count_4, tag_4, '},', '{', id_5, slot_5, count_5, tag_5, '},', '{', id_6, slot_6, count_6, tag_6, '},', '{', id_7, slot_7, count_7, tag_7, '},', '{', id_8, slot_8, count_8, tag_8, '},', '{', id_9, slot_9, count_9, tag_9, '}',']}', ' run data remove block ~ ~ ~ Items', sep='')
+            print('\n\n\n#Sound after craft:\nexecute as @e[type=item_display,tag=dis.custom_crafting_table] at @s[scores={use_craft=1}] if block ~ ~ ~ barrel{Items:[','{', id_1, slot_1, count_1, tag_1, '},', '{', id_2, slot_2, count_2, tag_2, '},', '{', id_3, slot_3, count_3, tag_3, '},', '{', id_4, slot_4, count_4, tag_4, '},', '{', id_5, slot_5, count_5, tag_5, '},', '{', id_6, slot_6, count_6, tag_6, '},', '{', id_7, slot_7, count_7, tag_7, '},', '{', id_8, slot_8, count_8, tag_8, '},', '{', id_9, slot_9, count_9, tag_9, '}',']}', ' run playsound minecraft:block.anvil.use block @a[distance=..10] ~ ~ ~', sep='')
+            print('#Craft:\nexecute as @e[type=item_display,tag=dis.custom_crafting_table] at @s[scores={use_craft=1}] if block ~ ~ ~ barrel{Items:[','{', id_1, slot_1, count_1, tag_1, '},', '{', id_2, slot_2, count_2, tag_2, '},', '{', id_3, slot_3, count_3, tag_3, '},', '{', id_4, slot_4, count_4, tag_4, '},', '{', id_5, slot_5, count_5, tag_5, '},', '{', id_6, slot_6, count_6, tag_6, '},', '{', id_7, slot_7, count_7, tag_7, '},', '{', id_8, slot_8, count_8, tag_8, '},', '{', id_9, slot_9, count_9, tag_9, '}',']}', ' run loot replace block ~ ~ ~ container.16 loot ', loot_path, sep='')
+            print('#Clear crafting table:\nexecute as @e[type=item_display,tag=dis.custom_crafting_table] at @s[scores={use_craft=1}] if block ~ ~ ~ barrel{Items:[','{', id_1, slot_1, count_1, tag_1, '},', '{', id_2, slot_2, count_2, tag_2, '},', '{', id_3, slot_3, count_3, tag_3, '},', '{', id_4, slot_4, count_4, tag_4, '},', '{', id_5, slot_5, count_5, tag_5, '},', '{', id_6, slot_6, count_6, tag_6, '},', '{', id_7, slot_7, count_7, tag_7, '},', '{', id_8, slot_8, count_8, tag_8, '},', '{', id_9, slot_9, count_9, tag_9, '}',']}', ' run data remove block ~ ~ ~ Items', sep='')
+        else:
+            print('EROR!\nTry again.')
+            craft_result()
         
         while True:
             pass
