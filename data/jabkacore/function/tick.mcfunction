@@ -1,0 +1,2 @@
+execute as @e[type=#jabkacore:crafting_table,tag=jabkacore.crafting_table] at @s run function jabkacore:tick_entity
+execute if score #reset_items main_score matches 1 run function jabkacore:crafting_table/gui/items/reset
