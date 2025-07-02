@@ -1,0 +1,2 @@
+execute if block ~ ~ ~ minecraft:hopper run setblock ~ ~ ~ minecraft:air destroy
+execute as @e[type=minecraft:hopper_minecart,distance=..0.5,limit=1] run function jabkacore:internal/crafting_table/destroy/hopper_minecart

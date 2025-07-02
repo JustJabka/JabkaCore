@@ -39,12 +39,12 @@ def generate_recipe():
             commands.append(command)
     else:  # shapeless
         used_items = [item for item in slots.values() if item != "*"]
-        commands.append(f"execute store result score #ingredients main_score if data storage jabkacore:main recipe[]")
-        commands.append(f"execute unless score #ingredients main_score matches {len(used_items)} run return fail")
+        commands.append(f"execute store result score #ingredients jabkacore.gui if data storage jabkacore:gui crafting_table.recipe[]")
+        commands.append(f"execute unless score #ingredients jabkacore.gui matches {len(used_items)} run return fail")
         for item in used_items:
             commands.append(f"execute unless items block ~ ~ ~ container.* {item} run return fail")
     
-    commands.append(f"data modify storage jabkacore:main craft_result set value {result}")
+    commands.append(f"data modify storage jabkacore:gui crafting_table.craft_result set value {result}")
 
     return "\n".join(commands)
 

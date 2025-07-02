@@ -1,2 +1,1 @@
 return run execute store result score @s jabkacore.health.current run scoreboard players get @s jabkacore.hearts
-# tellraw @s ["", {text: "[Health Module] ", color: "red"}, "Health Current: ", {score: {name: "@s", objective: "jabkacore.health.current"}}]
