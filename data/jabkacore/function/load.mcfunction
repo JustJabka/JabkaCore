@@ -1,17 +1,29 @@
-data remove storage jabkacore:main actionbar
+# Main
+scoreboard objectives add jabkacore.main dummy
 
-# scores
-scoreboard objectives add main_score dummy
-scoreboard objectives add jabkacore.active_recipe dummy
+scoreboard objectives add jabkacore.air air
+scoreboard objectives add jabkacore.armor armor
+scoreboard objectives add jabkacore.food food
+scoreboard objectives add jabkacore.hearts health
+
 scoreboard objectives add jabkacore.id dummy
 
-# crafting table
-data modify storage jabkacore:main crafting_table set value [{Slot:0b,components:{"minecraft:custom_data":{jabkacore.gui_item:1b},"minecraft:custom_model_data":10014,"minecraft:hide_tooltip":{},"minecraft:item_name":'""'},count:1,id:"minecraft:poisonous_potato"},{Slot:1b,components:{"minecraft:custom_data":{jabkacore.gui_item:1b},"minecraft:custom_model_data":10014,"minecraft:hide_tooltip":{},"minecraft:item_name":'""'},count:1,id:"minecraft:poisonous_potato"},{Slot:5b,components:{"minecraft:custom_data":{jabkacore.gui_item:1b},"minecraft:custom_model_data":10014,"minecraft:hide_tooltip":{},"minecraft:item_name":'""'},count:1,id:"minecraft:poisonous_potato"},{Slot:6b,components:{"minecraft:custom_data":{jabkacore.gui_item:1b},"minecraft:custom_model_data":10014,"minecraft:hide_tooltip":{},"minecraft:item_name":'""'},count:1,id:"minecraft:poisonous_potato"},{Slot:7b,components:{"minecraft:custom_data":{jabkacore.gui_item:1b},"minecraft:custom_model_data":10014,"minecraft:hide_tooltip":{},"minecraft:item_name":'""'},count:1,id:"minecraft:poisonous_potato"},{Slot:8b,components:{"minecraft:custom_data":{jabkacore.gui_item:1b},"minecraft:custom_model_data":10014,"minecraft:hide_tooltip":{},"minecraft:item_name":'""'},count:1,id:"minecraft:poisonous_potato"},{Slot:9b,components:{"minecraft:custom_data":{jabkacore.gui_item:1b},"minecraft:custom_model_data":10014,"minecraft:hide_tooltip":{},"minecraft:item_name":'""'},count:1,id:"minecraft:poisonous_potato"},{Slot:10b,components:{"minecraft:custom_data":{jabkacore.gui_item:1b},"minecraft:custom_model_data":10014,"minecraft:hide_tooltip":{},"minecraft:item_name":'""'},count:1,id:"minecraft:poisonous_potato"},{Slot:14b,components:{"minecraft:custom_data":{jabkacore.gui_item:1b},"minecraft:custom_model_data":10014,"minecraft:hide_tooltip":{},"minecraft:item_name":'""'},count:1,id:"minecraft:poisonous_potato"},{Slot:15b,components:{"minecraft:custom_data":{jabkacore.gui_item:1b},"minecraft:custom_model_data":10014,"minecraft:hide_tooltip":{},"minecraft:item_name":'""'},count:1,id:"minecraft:poisonous_potato"},{Slot:17b,components:{"minecraft:custom_data":{jabkacore.gui_item:1b},"minecraft:custom_model_data":10014,"minecraft:hide_tooltip":{},"minecraft:item_name":'""'},count:1,id:"minecraft:poisonous_potato"},{Slot:18b,components:{"minecraft:custom_data":{jabkacore.gui_item:1b},"minecraft:custom_model_data":10014,"minecraft:hide_tooltip":{},"minecraft:item_name":'""'},count:1,id:"minecraft:poisonous_potato"},{Slot:19b,components:{"minecraft:custom_data":{jabkacore.gui_item:1b},"minecraft:custom_model_data":10014,"minecraft:hide_tooltip":{},"minecraft:item_name":'""'},count:1,id:"minecraft:poisonous_potato"},{Slot:23b,components:{"minecraft:custom_data":{jabkacore.gui_item:1b},"minecraft:custom_model_data":10014,"minecraft:hide_tooltip":{},"minecraft:item_name":'""'},count:1,id:"minecraft:poisonous_potato"},{Slot:24b,components:{"minecraft:custom_data":{jabkacore.gui_item:1b},"minecraft:custom_model_data":10014,"minecraft:hide_tooltip":{},"minecraft:item_name":'""'},count:1,id:"minecraft:poisonous_potato"},{Slot:25b,components:{"minecraft:custom_data":{jabkacore.gui_item:1b},"minecraft:custom_model_data":10014,"minecraft:hide_tooltip":{},"minecraft:item_name":'""'},count:1,id:"minecraft:poisonous_potato"},{Slot:26b,components:{"minecraft:custom_data":{jabkacore.gui_item:1b},"minecraft:custom_model_data":10015,"minecraft:hide_tooltip":{},"minecraft:item_name":'""'},count:1,id:"minecraft:poisonous_potato"}]
-execute in jabkacore:main run setblock 0 0 0 minecraft:shulker_box
-execute in jabkacore:main run forceload add 0 0
+# Health Module
+scoreboard objectives add jabkacore.health dummy
+scoreboard objectives add jabkacore.health.max dummy
+scoreboard objectives add jabkacore.health.current dummy
+scoreboard objectives add jabkacore.health.percent dummy
 
-# TODO list:
-# make adv_crafting_table react to light source
-# make crouch + M1 work correctly in adv_crafting_table
-# add math functions
-# add predicates and tags# actionbar storage (example)
+# Effects Module
+scoreboard objectives add jabkacore.effect.freezing dummy
+scoreboard objectives add jabkacore.effect.drowning dummy
+
+# GUI
+scoreboard objectives add jabkacore.gui dummy
+scoreboard objectives add jabkacore.gui.active_recipe dummy
+execute unless score #inited jabkacore.gui matches 1 run function jabkacore:internal/crafting_table/init
+
+# Math Module
+scoreboard objectives add jabkacore.math dummy
+scoreboard objectives add const dummy
+execute unless score #inited jabkacore.math matches 1 run function jabkacore:internal/math/init

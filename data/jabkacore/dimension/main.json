@@ -1,9 +1,10 @@
 {
-    "type": "the_end",
+    "type": "minecraft:the_end",
     "generator": {
-        "type": "flat",
+        "type": "minecraft:flat",
         "settings": {
             "layers": [],
+            "biome": "minecraft:the_end",
             "structure_overrides": []
         }
     }
