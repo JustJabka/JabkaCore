@@ -1,4 +1,10 @@
-# jabkacore
-Core for my datapacks with features I use often
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2fe6eff0-9555-4ab0-b937-342fcf282625"/>
+</p>
 
-![Craft](https://cdn.modrinth.com/data/cached_images/3a54df2ad621550ae26b23b1d9b1a109a7124e49.png)
+## Documentation
+- ![Crafting Table Module🔨](https://github.com/JustJabka/JabkaCore/wiki/Crafting-Table-Module%F0%9F%94%A8)
+- ![Effects Module🪄](https://github.com/JustJabka/JabkaCore/wiki/Effects-Module%F0%9F%AA%84)
+- ![Health Module❤️](https://github.com/JustJabka/JabkaCore/wiki/Health-Module%E2%9D%A4%EF%B8%8F)
+- ![Math Module🧮](https://github.com/JustJabka/JabkaCore/wiki/Math-Module%F0%9F%A7%AE)
+- ![Movement Module🏃](https://github.com/JustJabka/JabkaCore/wiki/Movement-Module%F0%9F%8F%83)

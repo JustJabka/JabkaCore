@@ -18,7 +18,7 @@ scoreboard objectives add jabkacore.health.percent dummy
 scoreboard objectives add jabkacore.effect.freezing dummy
 scoreboard objectives add jabkacore.effect.drowning dummy
 
-# GUI
+# GUI Module
 scoreboard objectives add jabkacore.gui dummy
 scoreboard objectives add jabkacore.gui.active_recipe dummy
 execute unless score #inited jabkacore.gui matches 1 run function jabkacore:internal/crafting_table/init
